@@ -13,5 +13,15 @@
 		<input type="text" name="data">
 		<button>전송</button>
 	</form>
+	<hr>
+	<form action="data_number.jsp" method="post">
+		<input type="number" name="num"><button>전송</button>
+	</form>
 </body>
 </html>
+
+
+
+
+
+
