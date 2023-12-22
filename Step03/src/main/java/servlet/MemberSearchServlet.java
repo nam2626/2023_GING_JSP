@@ -1,11 +1,18 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.json.JSONArray;
+
+import dto.MemberDTO;
+import service.MemberService;
 
 /**
  * Servlet implementation class MemberSearchServlet
@@ -30,11 +37,12 @@ public class MemberSearchServlet extends HttpServlet {
 		String search = request.getParameter("search");
 		System.out.println(kind + " " + search);
 		
+		ArrayList<MemberDTO> list = 
+				MemberService.getInstance().searchMember(kind,search);
 		
-		
+		JSONArray arr = new JSONArray(list);
 		response.setCharacterEncoding("utf-8");
-		response.getWriter().write("결과 값");
-	
+		response.getWriter().write(arr.toString());
 	}
 
 	/**

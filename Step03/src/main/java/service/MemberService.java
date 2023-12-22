@@ -1,5 +1,10 @@
 package service;
 
+import java.util.ArrayList;
+
+import dao.MemberDAO;
+import dto.MemberDTO;
+
 public class MemberService {
 	private static MemberService instance = new MemberService();
 
@@ -10,6 +15,10 @@ public class MemberService {
 		if(instance == null)
 			instance = new MemberService();
 		return instance;
+	}
+
+	public ArrayList<MemberDTO> searchMember(String kind, String search) {
+		return MemberDAO.getInstance().searchMember(kind,search);
 	}
 
 	

@@ -1,5 +1,9 @@
 package dao;
 
+import java.util.ArrayList;
+
+import dto.MemberDTO;
+
 public class MemberDAO {
 	private static MemberDAO instance = new MemberDAO();
 
@@ -11,5 +15,16 @@ public class MemberDAO {
 		return instance;
 	}
 
+	public ArrayList<MemberDTO> searchMember(String kind, String search) {
+		return null;
+	}
+
 	
 }
+
+
+
+
+
+
+
