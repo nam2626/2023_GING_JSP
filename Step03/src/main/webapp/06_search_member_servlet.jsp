@@ -20,6 +20,7 @@
                 dataType : 'text',
                 success : function(r){
                     console.log(r);
+                    //json으로 받은 데이터를 tbody에 추가
                 }
             })
 		});
