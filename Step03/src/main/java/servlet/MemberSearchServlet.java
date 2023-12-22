@@ -30,6 +30,7 @@ public class MemberSearchServlet extends HttpServlet {
 		String search = request.getParameter("search");
 		System.out.println(kind + " " + search);
 		
+		response.setCharacterEncoding("utf-8");
 		response.getWriter().write("결과 값");
 	
 	}
