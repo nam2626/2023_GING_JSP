@@ -44,7 +44,6 @@
                 <th>이름</th>
                 <th>나이</th>
                 <th>성별</th>
-                <th>주소</th>
             </tr>
         </thead>
         <tbody>
