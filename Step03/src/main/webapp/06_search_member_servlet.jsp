@@ -29,9 +29,9 @@
 <body>
     <form>
         <select name="kind">
-            <option value="id">아이디</option>
-            <option value="name">이름</option>
-            <option value="gender">성별</option>
+            <option value="m_id">아이디</option>
+            <option value="m_name">이름</option>
+            <option value="m_gender">성별</option>
         </select>
         <input type="text" name="search" placeholder="검색어를 입력하세요"> 
         <button type="button">검색</button>
