@@ -11,7 +11,7 @@
 	<h2>session 결과 페이지</h2>
 	<p>name : <%=session.getAttribute("name") %></p>
 	<p>age : <%=session.getAttribute("age") %></p>
-	
+	<a href="session_invalidate">세션 정보 초기화</a>
 </body>
 </html>
 
