@@ -23,6 +23,8 @@
 	</p>
 	<p>${sessionScope.dto.toString() }</p>
 	<h2>jstl</h2>
+	<c:set var="tnum" value="10000" />
+	<p><c:out value="${tnum}" />,${tnum }</p>
 </body>
 </html>
 
