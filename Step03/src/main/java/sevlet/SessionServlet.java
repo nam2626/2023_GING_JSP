@@ -35,7 +35,14 @@ public class SessionServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		//세션에 데이터 저장
-	
+		session.setAttribute("name", name);
+		session.setAttribute("age", age);
+		
+		//세션 만료시간 설정 - 초단위
+		session.setMaxInactiveInterval(60);
+		
+		//09_session_result.jsp 페이지 이동, redirect
+		response.sendRedirect("09_session_result.jsp");
 	
 	}
 
