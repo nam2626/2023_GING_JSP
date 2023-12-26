@@ -47,6 +47,34 @@
 			<p>40대 이상 입니다.</p>
 		</c:otherwise>
 	</c:choose>
+	<p>반복문 - 시작값, 종료값, 증감값 설정해서 반복</p>
+	<ul>
+		<c:forEach var="i" begin="1" end="10">
+			<li>${i }</li>
+		</c:forEach>
+	</ul>
+	<ul>
+		<c:forEach var="i" begin="1" end="10" step="2" varStatus="status">
+			<li>${i },${status.begin },${status.end },${status.step}</li>
+		</c:forEach>
+	</ul>
+	<!-- list 꺼내는 부분 -->
+	<ul>
+		<!--
+			상태변수
+				current : 현재 아이템 값
+				index : 인덱스 값 - 0부터 시작
+				count : 1부터 순서값 시작
+				first : 해당 순서가 첫번째인지 확인
+				last : 해당 순서가 마지막인지 확인
+				begin : 시작값
+				end : 마지막값
+				step : 증가값
+		-->
+		<c:forEach var="m" items="${requestScope.list }" varStatus="status">
+			<li>${m.toString() },${status.count }</li>
+		</c:forEach>
+	</ul>
 </body>
 </html>
 
