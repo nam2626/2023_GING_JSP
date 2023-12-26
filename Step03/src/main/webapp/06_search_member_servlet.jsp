@@ -17,10 +17,21 @@
                 url : 'search.do',
                 data : d,
                 type : 'get',
-                dataType : 'text',
+                dataType : 'json',
                 success : function(r){
                     console.log(r);
+                    $("tbody").html('');
                     //json으로 받은 데이터를 tbody에 추가
+                    for(i=0;i<r.length;i++){
+                    	let tag = '<tr>';
+                    	tag += '<td>' + r[i].id + '</td>';
+                    	tag += '<td>' + r[i].passwd + '</td>';
+                    	tag += '<td>' + r[i].name + '</td>';
+                    	tag += '<td>' + r[i].age + '</td>';
+                    	tag += '<td>' + r[i].gender + '</td></tr>';
+                    	console.log(tag);
+                    	$("tbody").append(tag);
+                    }
                 }
             })
 		});

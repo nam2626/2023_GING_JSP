@@ -1,8 +1,8 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,22 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.PageContext;
 
-import org.json.JSONArray;
-
-import dto.MemberDTO;
-import service.MemberService;
-
 /**
- * Servlet implementation class MemberSearchServlet
+ * Servlet implementation class ApplicationServlet
  */
-@WebServlet("/search.do")
-public class MemberSearchServlet extends HttpServlet {
+@WebServlet("/application_scope")
+public class ApplicationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberSearchServlet() {
+    public ApplicationServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,16 +29,18 @@ public class MemberSearchServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String kind = request.getParameter("kind");
-		String search = request.getParameter("search");
-		System.out.println(kind + " " + search);
+		ServletContext application = request.getServletContext();
+		System.out.println(application.getAttribute("d1"));
 		
-		ArrayList<MemberDTO> list = 
-				MemberService.getInstance().searchMember(kind,search);
+		int count = 0;
 		
-		JSONArray arr = new JSONArray(list);
-		response.setCharacterEncoding("utf-8");
-		response.getWriter().write(arr.toString());
+		if(application.getAttribute("count") != null) {
+			count = (int) application.getAttribute("count");
+		}
+		
+		application.setAttribute("count", ++count);
+		
+		response.sendRedirect("application_scope_result.jsp");
 	}
 
 	/**

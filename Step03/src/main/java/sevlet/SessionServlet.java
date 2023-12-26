@@ -1,31 +1,24 @@
-package servlet;
+package sevlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.jsp.PageContext;
-
-import org.json.JSONArray;
-
-import dto.MemberDTO;
-import service.MemberService;
+import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class MemberSearchServlet
+ * Servlet implementation class SessionServlet
  */
-@WebServlet("/search.do")
-public class MemberSearchServlet extends HttpServlet {
+@WebServlet("/session_test")
+public class SessionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberSearchServlet() {
+    public SessionServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,16 +27,16 @@ public class MemberSearchServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String kind = request.getParameter("kind");
-		String search = request.getParameter("search");
-		System.out.println(kind + " " + search);
+		//이름 나이 가져옴
+		String name = request.getParameter("name");
+		int age = Integer.parseInt(request.getParameter("age"));
 		
-		ArrayList<MemberDTO> list = 
-				MemberService.getInstance().searchMember(kind,search);
+		//세션 정보 가져옴
+		HttpSession session = request.getSession();
 		
-		JSONArray arr = new JSONArray(list);
-		response.setCharacterEncoding("utf-8");
-		response.getWriter().write(arr.toString());
+		//세션에 데이터 저장
+	
+	
 	}
 
 	/**
