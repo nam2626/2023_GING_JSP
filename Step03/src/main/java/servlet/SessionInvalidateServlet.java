@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class SessionInvalidateServlet
  */
-@WebServlet("/SessionInvalidateServlet")
+@WebServlet("/session_invalidate")
 public class SessionInvalidateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
