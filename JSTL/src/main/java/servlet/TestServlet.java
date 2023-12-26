@@ -46,7 +46,7 @@ public class TestServlet extends HttpServlet {
 		list.add(new MemberDTO("A0003","1234","CCCC",20,"남",33333,"Silver"));
 		
 		request.setAttribute("list", list);
-		request.setAttribute("age", 20);
+		request.setAttribute("age", 44);
 		
 		request.getRequestDispatcher("jstl_el.jsp").forward(request, response);
 	}
