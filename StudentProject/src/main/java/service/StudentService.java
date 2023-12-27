@@ -41,6 +41,10 @@ public class StudentService {
 		return studentDao.selectStudent(studentNo);
 	}
 
+	public int updateStudent(StudentDTO studentDTO) {
+		return studentDao.updateStudent(studentDTO);
+	}
+
 	
 }
 

@@ -18,6 +18,24 @@
 		border: 1px solid black;
 		text-align: center;
 	}
+	nav ul{
+		widows: 1200px;
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-around;
+		list-style-type: none;
+	}
+	nav a:visited, nav a:link {
+ 		text-decoration: none;
+ 		color : black;
+ 		font-size: 24px;
+ 		display: inline-block;
+ 		padding:10px 0px;
+	}
+	nav a:hover{
+		border-bottom: 2px solid black ;
+		font-weight: bold;
+	}
 </style>
 </head>
 <body>

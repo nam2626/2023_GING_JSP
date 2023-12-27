@@ -33,6 +33,9 @@ public class HandlerMapping {
 		case "updateView.do":
 			controller = new StudentUpdateViewController();
 			break;
+		case "studentUpdate.do":
+			controller = new StudentUpdateController();
+			break;
 		}
 		
 		return controller;
