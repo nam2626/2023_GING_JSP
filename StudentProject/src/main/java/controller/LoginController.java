@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +14,7 @@ import view.ModelAndView;
 public class LoginController implements Controller {
 
 	@Override
-	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		ModelAndView view = null;
 		
 		//아이디, 패스워드 값 읽어옴

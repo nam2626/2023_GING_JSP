@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,7 +13,7 @@ import view.ModelAndView;
 public class StudentRegisterController implements Controller {
 
 	@Override
-	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String studentNo = request.getParameter("studentNo");
 		String studentName = request.getParameter("studentName");
 		double score = Double.parseDouble(request.getParameter("score"));

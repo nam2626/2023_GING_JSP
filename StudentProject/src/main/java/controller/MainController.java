@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +15,7 @@ import view.ModelAndView;
 public class MainController implements Controller {
 
 	@Override
-	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		ModelAndView view = new ModelAndView("main.jsp", false);
 		//모든 학생 정보를 읽어와서 request 영역에 저장
 		ArrayList<StudentDTO> studentList = 
