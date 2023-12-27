@@ -33,7 +33,16 @@
 	 	</script>
  	-->
  </c:if>
- 
+ <!-- 메뉴 영역 -->
+ 	<nav>
+ 		<ul>
+ 			<li><a href="main.do">홈</a></li>
+ 			<li><a href="registerStudentView.do">학생정보 등록</a></li>
+ 			<li><a href="majorMain.do">학과 관리</a></li>
+ 			<li><a href="scholarshipMain.do">장학생 관리</a></li>
+ 			<li><a href="logout.do">로그아웃</a></li>
+ 		</ul>
+ 	</nav>
 	<table>
 		<thead>
 			<tr>
