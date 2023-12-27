@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import view.ModelAndView;
+
 /**
  * Servlet implementation class DispatcherServlet
  */
@@ -28,13 +30,18 @@ public class DispatcherServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String[] arr = request.getRequestURI().split("/");
 		String command = arr[arr.length-1];
+		ModelAndView view = null;
 		
 		//HandlerMapping에 command를 보내서 작업할 컨트롤러를 받아와야함
 		
 		//Controller 실행, 실행 결과는 어느 페이지로 이동할 것인지? 받아옴
 		
+		if(view == null) return;
 		//페이지 이동 - 경로, forward? redirect?
-	
+		if(view.isRedirect())
+			response.sendRedirect(view.getPath());
+		else
+			request.getRequestDispatcher(view.getPath()).forward(request, response);
 	}
 
 	/**
