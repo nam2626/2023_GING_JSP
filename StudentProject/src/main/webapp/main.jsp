@@ -55,7 +55,11 @@
 			 		<td>${std.gender }</td>
 			 		<td>
 			 		<!-- 학과번호를 이용해서 해당 학과명을 출력 -->
-			 		${std.majorNo }
+			 		<c:forEach var="m" items="${sessionScope.majorList }">
+						<c:if test="${std.majorNo == m.majorNo}">
+							${m.majorName }						
+						</c:if>	 		
+			 		</c:forEach>
 			 		</td>
 			 		<td>
 			 			<a href='updateView.do?stdudentNo=${std.studentNo }'>수정</a>
