@@ -14,7 +14,7 @@ import view.ModelAndView;
 /**
  * Servlet implementation class DispatcherServlet
  */
-@WebServlet("/*.do")
+@WebServlet("*.do")
 public class DispatcherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
