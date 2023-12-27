@@ -53,7 +53,10 @@
 			 		<td>${std.studentName }</td>
 			 		<td>${std.score }</td>
 			 		<td>${std.gender }</td>
-			 		<td>${std.majorNo }</td>
+			 		<td>
+			 		<!-- 학과번호를 이용해서 해당 학과명을 출력 -->
+			 		${std.majorNo }
+			 		</td>
 			 		<td>
 			 			<a href='updateView.do?stdudentNo=${std.studentNo }'>수정</a>
 			 			/

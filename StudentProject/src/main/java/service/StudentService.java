@@ -3,6 +3,7 @@ package service;
 import java.util.ArrayList;
 
 import dao.StudentDAO;
+import dto.MajorDTO;
 import dto.StudentDTO;
 
 public class StudentService {
@@ -20,6 +21,10 @@ public class StudentService {
 
 	public ArrayList<StudentDTO> selectAllStudent() {
 		return studentDao.selectAllStudent();
+	}
+
+	public ArrayList<MajorDTO> selectAllMajor() {
+		return studentDao.selectAllMajor();
 	}
 
 	
