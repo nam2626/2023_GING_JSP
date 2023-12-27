@@ -28,6 +28,11 @@ public class DispatcherServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println(request.getRequestURI());
 		System.out.println(request.getRequestURL());
+		String[] arr = request.getRequestURI().split("/");
+		System.out.println(arr[arr.length-1]);//요청한 기능
+		int idx = request.getRequestURL().indexOf("/", 7);
+		String url = request.getRequestURL().substring(0, idx);
+		System.out.println(url);//도메인
 	}
 
 	/**
