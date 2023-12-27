@@ -21,6 +21,19 @@
 </style>
 </head>
 <body>
+<!-- 
+	로그인 세션이 풀려있으면 index.jsp로 이동
+ -->
+ <c:if test="${sessionScope.login == null || sessionScope.login == false }">
+ 	<c:redirect url="index.jsp"/>
+ 	<!-- 
+	 	<script type="text/javascript">
+	 		alert("로그인 하셔야 이용할 수 있습니다.");
+	 		location.href = 'index.jsp';
+	 	</script>
+ 	-->
+ </c:if>
+ 
 	<table>
 		<thead>
 			<tr>
@@ -34,7 +47,7 @@
 		</thead>
 		<tbody>
 			 <!-- 세션에 저장한 studentList를 출력 -->
-			 <c:forEach var="std" items="${sessionScope.studentList }">
+			 <c:forEach var="std" items="${requestScope.studentList }">
 			 	<tr>
 			 		<td>${std.studentNo }</td>
 			 		<td>${std.studentName }</td>
