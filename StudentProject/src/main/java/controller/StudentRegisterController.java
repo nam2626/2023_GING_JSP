@@ -28,7 +28,7 @@ public class StudentRegisterController implements Controller {
 		if(result == 1) {
 			view = new ModelAndView("main.do", true);
 		}else {
-			response.setCharacterEncoding("utf-8");
+			response.setContentType("text/html; charset=utf-8");
 			PrintWriter pw = response.getWriter();
 			pw.write("<script>alert('학생정보 등록에 실패했습니다.');history.back();</script>");
 		}
