@@ -31,6 +31,10 @@ public class StudentService {
 		return studentDao.insertStudent(studentDTO);
 	}
 
+	public int deleteStudent(String studentNo) {
+		return studentDao.deleteStudent(studentNo);
+	}
+
 	
 }
 

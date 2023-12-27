@@ -89,6 +89,23 @@ public class StudentDAO {
 		return result;
 	}
 
+	public int deleteStudent(String studentNo) {
+		String sql = "delete from student where std_no like ?";
+		PreparedStatement pstmt = null;
+		int result = 0;
+		try {
+			pstmt = manager.getConn().prepareStatement(sql);
+			pstmt.setString(1, studentNo);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			manager.close(null, pstmt);
+		}
+		return result;
+	}
+
 }
 
 

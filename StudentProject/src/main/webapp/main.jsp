@@ -71,9 +71,9 @@
 			 		</c:forEach>
 			 		</td>
 			 		<td>
-			 			<a href='updateView.do?stdudentNo=${std.studentNo }'>수정</a>
+			 			<a href='updateView.do?studentNo=${std.studentNo }'>수정</a>
 			 			/
-			 			<a href='deleteStudent.do?stdudentNo=${std.studentNo }'>삭제</a>
+			 			<a href='deleteStudent.do?studentNo=${std.studentNo }'>삭제</a>
 			 			
 			 		</td>
 			 	</tr>
