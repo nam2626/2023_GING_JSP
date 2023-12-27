@@ -35,8 +35,18 @@ public class StudentService {
 		return studentDao.deleteStudent(studentNo);
 	}
 
+	public StudentDTO selectStudent(String studentNo) {
+		if(studentNo == null || studentNo.equals(""))
+			return null;
+		return studentDao.selectStudent(studentNo);
+	}
+
 	
 }
+
+
+
+
 
 
 

@@ -106,6 +106,30 @@ public class StudentDAO {
 		return result;
 	}
 
+	public StudentDTO selectStudent(String studentNo) {
+		StudentDTO dto = null;
+
+		String sql = "select * from student where std_no like ?";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = manager.getConn().prepareStatement(sql);
+			pstmt.setString(1, studentNo);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				dto = new StudentDTO(rs.getString(1), rs.getString(2), rs.getDouble(3), rs.getString(4),
+						rs.getInt(5));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			manager.close(rs, pstmt);
+		}
+		return dto;
+	}
+
 }
 
 
