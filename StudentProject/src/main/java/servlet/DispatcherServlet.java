@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controller.Controller;
+import controller.HandlerMapping;
 import view.ModelAndView;
 
 /**
@@ -33,8 +35,10 @@ public class DispatcherServlet extends HttpServlet {
 		ModelAndView view = null;
 		
 		//HandlerMapping에 command를 보내서 작업할 컨트롤러를 받아와야함
-		
+		Controller controller = HandlerMapping.getInstance().createController(command);
 		//Controller 실행, 실행 결과는 어느 페이지로 이동할 것인지? 받아옴
+		if(controller != null) 
+			view = controller.execute(request, response);
 		
 		if(view == null) return;
 		//페이지 이동 - 경로, forward? redirect?
