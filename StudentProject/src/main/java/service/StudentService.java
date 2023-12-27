@@ -27,6 +27,10 @@ public class StudentService {
 		return studentDao.selectAllMajor();
 	}
 
+	public int insertStudent(StudentDTO studentDTO) {
+		return studentDao.insertStudent(studentDTO);
+	}
+
 	
 }
 

@@ -24,6 +24,9 @@ public class HandlerMapping {
 		case "registerStudentView.do":
 			controller = new StudentRegisterViewController();
 			break;
+		case "studentRegister.do":
+			controller = new StudentRegisterController();
+			break;
 		}
 		
 		return controller;

@@ -68,4 +68,32 @@ public class StudentDAO {
 		return list;
 	}
 
+	public int insertStudent(StudentDTO studentDTO) {
+		String sql = "insert into student values(?,?,?,?,?)";
+		PreparedStatement pstmt = null;
+		int result = 0;
+		try {
+			pstmt = manager.getConn().prepareStatement(sql);
+			pstmt.setString(1, studentDTO.getStudentNo());
+			pstmt.setString(2, studentDTO.getStudentName());
+			pstmt.setDouble(3, studentDTO.getScore());
+			pstmt.setString(4, studentDTO.getGender());
+			pstmt.setInt(5, studentDTO.getMajorNo());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			manager.close(null, pstmt);
+		}
+		return result;
+	}
+
 }
+
+
+
+
+
+
+
