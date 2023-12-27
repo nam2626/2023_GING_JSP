@@ -1,9 +1,13 @@
 package controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dto.StudentDTO;
+import service.StudentService;
 import view.ModelAndView;
 
 public class LoginController implements Controller {
@@ -21,6 +25,12 @@ public class LoginController implements Controller {
 			//세션에 데이터 설정
 			HttpSession session = request.getSession();
 			session.setAttribute("login", true);
+			//모든 학생 정보를 읽어와서 session 영역에 저장
+			ArrayList<StudentDTO> studentList = 
+					StudentService.getInstance().selectAllStudent();
+			session.setAttribute("studentList", studentList);
+			//모든 학과 정보를 읽어와서 session 영역에 저장
+			
 			//경로이동
 			view = new ModelAndView("main.jsp", true);
 		}else {
