@@ -55,6 +55,27 @@
 		font-size: 20px;
 	}
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+	$(function(){
+		$(".btn_major").click(function() {
+			let d = {
+					majorNo : $('.txt_major_no').val(),
+					majorName : $('.txt_major_name').val()
+			};
+			$.ajax({
+				url : 'majorInsert.do',
+				data : d,
+				type : 'get',
+				dataType : 'json',
+				success : function(r){
+					console.log(r);
+				}
+			});
+		});
+	});
+
+</script>
 </head>
 <body>
 	<nav>
