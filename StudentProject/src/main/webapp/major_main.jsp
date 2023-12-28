@@ -79,7 +79,28 @@
 					console.log(r);
 					//받아온 데이터를 tbody에 새로 태그를 만들어서 변경
 					const tag = r.list.reduce((acc,cur,idx) => {
-						return acc + `<tr><td>\${cur.majorNo }</td><td>\${cur.majorName }</td><td><button class='btn_update'>수정</button><button class='btn_delete'>삭제</button></td></tr>`;
+						return acc + `<tr><td><input type='text' name='majorNo' value='\${cur.majorNo }'></td><td><input type='text' name='majorName' value='\${cur.majorName }'></td><td><button class='btn_update'>수정</button><button class='btn_delete'>삭제</button></td></tr>`;
+					},'');
+					console.log(tag);
+					$('.container > table > tbody').html(tag);
+				}
+			});
+		});
+		
+		$('.btn_update').click(function(){
+			//console.log($(this).parent().parent().find('input'));
+			let d = {};
+			$(this).parent().parent().find('input').each((idx, item)=>{
+				d[$(item).attr('name')] = $(item).val();
+			});
+			console.log(d);
+			$.ajax({
+				url : 'majorUpdate.do',
+				data : d,
+				dataType : 'json',
+				success : function(r){
+					const tag = r.list.reduce((acc,cur,idx) => {
+						return acc + `<tr><td><input type='text' name='majorNo' value='\${cur.majorNo }'></td><td><input type='text' name='majorName' value='\${cur.majorName }'></td><td><button class='btn_update'>수정</button><button class='btn_delete'>삭제</button></td></tr>`;
 					},'');
 					console.log(tag);
 					$('.container > table > tbody').html(tag);
@@ -112,8 +133,8 @@
 		<tbody>
 			<c:forEach var="major" items="${sessionScope.majorList }">
 				<tr>
-					<td><input type='text' value='${major.majorNo }' readonly></td>
-					<td><input type='text' value='${major.majorName }'></td>
+					<td><input type='text' name='majorNo' value='${major.majorNo }' readonly></td>
+					<td><input type='text' name='majorName' value='${major.majorName }'></td>
 					<td>
 						<button class='btn_update'>수정</button>
 						<button class='btn_delete'>삭제</button>
