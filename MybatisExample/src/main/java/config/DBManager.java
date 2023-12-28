@@ -13,7 +13,7 @@ public class DBManager {
 	private SqlSessionFactory sqlSessionFactory;
 	private DBManager() {
 		String resource = "config/mybatis-config.xml";
-		InputStream inputStream = null;
+		InputStream inputStream;
 		try {
 			inputStream = Resources.getResourceAsStream(resource);
 			sqlSessionFactory =
@@ -24,7 +24,7 @@ public class DBManager {
 	}
 
 	public static DBManager getInstance() {
-		if (instance == null)
+		if(instance == null)
 			instance = new DBManager();
 		return instance;
 	}
@@ -33,12 +33,6 @@ public class DBManager {
 		return sqlSessionFactory.openSession(true);//auto commit
 	}
 	
+	
+	
 }
-
-
-
-
-
-
-
-
