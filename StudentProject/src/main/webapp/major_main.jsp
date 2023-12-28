@@ -71,6 +71,12 @@
 				dataType : 'json',
 				success : function(r){
 					console.log(r);
+					//받아온 데이터를 tbody에 새로 태그를 만들어서 변경
+					const tag = r.list.reduce((acc,cur,idx) => {
+						return acc + `<tr><td>\${cur.majorNo }</td><td>\${cur.majorName }</td><td><button class='btn_update'>수정</button><button class='btn_delete'>삭제</button></td></tr>`;
+					},'');
+					console.log(tag);
+					$('.container > table > tbody').html(tag);
 				}
 			});
 		});
