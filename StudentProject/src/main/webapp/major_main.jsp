@@ -54,6 +54,12 @@
 		height: 70px;
 		font-size: 20px;
 	}
+	tbody input {
+		font-size : 20px;
+		border : none;
+		outline: none;
+		text-align: center;
+	}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
@@ -106,8 +112,8 @@
 		<tbody>
 			<c:forEach var="major" items="${sessionScope.majorList }">
 				<tr>
-					<td>${major.majorNo }</td>
-					<td>${major.majorName }</td>
+					<td><input type='text' value='${major.majorNo }' readonly></td>
+					<td><input type='text' value='${major.majorName }'></td>
 					<td>
 						<button class='btn_update'>수정</button>
 						<button class='btn_delete'>삭제</button>
