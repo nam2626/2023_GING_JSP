@@ -45,6 +45,9 @@ public class HandlerMapping {
 		case "majorInsert.do":
 			controller = new MajorInsertController();
 			break;
+		case "majorUpdate.do":
+			controller = new MajorUpdateController();
+			break;
 		}
 		
 		return controller;

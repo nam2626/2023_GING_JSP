@@ -49,6 +49,10 @@ public class StudentService {
 		return studentDao.insertStudent(majorDTO);
 	}
 
+	public int updateMajor(MajorDTO majorDTO) {
+		return studentDao.updateStudent(majorDTO);
+	}
+
 	
 }
 

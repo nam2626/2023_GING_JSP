@@ -172,6 +172,25 @@ public class StudentDAO {
 		return result;
 	}
 
+	public int updateStudent(MajorDTO majorDTO) {
+		String sql = "update major set major_name = ? where major_no = ?";
+		PreparedStatement pstmt = null;
+		int result = 0;
+		try {
+			pstmt = manager.getConn().prepareStatement(sql);
+			pstmt.setString(1, majorDTO.getMajorName());
+			pstmt.setInt(2, majorDTO.getMajorNo());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			manager.close(null, pstmt);
+		}
+		
+		return result;
+	}
+
 }
 
 

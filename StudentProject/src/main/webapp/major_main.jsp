@@ -63,6 +63,27 @@
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
+	function btnUpdateClick(){
+		//console.log($(this).parent().parent().find('input'));
+		let d = {};
+		$(this).parent().parent().find('input').each((idx, item)=>{
+			d[$(item).attr('name')] = $(item).val();
+		});
+		console.log(d);
+		$.ajax({
+			url : 'majorUpdate.do',
+			data : d,
+			dataType : 'json',
+			success : function(r){
+				const tag = r.list.reduce((acc,cur,idx) => {
+					return acc + `<tr><td><input type='text' name='majorNo' value='\${cur.majorNo }'></td><td><input type='text' name='majorName' value='\${cur.majorName }'></td><td><button class='btn_update'>수정</button><button class='btn_delete'>삭제</button></td></tr>`;
+				},'');
+				console.log(tag);
+				$('.container > table > tbody').html(tag);
+				$('.btn_update').click(btnUpdateClick);
+			}
+		});
+	}
 	$(function(){
 		$(".btn_major").click(function() {
 			let d = {
@@ -83,30 +104,11 @@
 					},'');
 					console.log(tag);
 					$('.container > table > tbody').html(tag);
+					$('.btn_update').click(btnUpdateClick);
 				}
 			});
 		});
-		
-		$('.btn_update').click(function(){
-			//console.log($(this).parent().parent().find('input'));
-			let d = {};
-			$(this).parent().parent().find('input').each((idx, item)=>{
-				d[$(item).attr('name')] = $(item).val();
-			});
-			console.log(d);
-			$.ajax({
-				url : 'majorUpdate.do',
-				data : d,
-				dataType : 'json',
-				success : function(r){
-					const tag = r.list.reduce((acc,cur,idx) => {
-						return acc + `<tr><td><input type='text' name='majorNo' value='\${cur.majorNo }'></td><td><input type='text' name='majorName' value='\${cur.majorName }'></td><td><button class='btn_update'>수정</button><button class='btn_delete'>삭제</button></td></tr>`;
-					},'');
-					console.log(tag);
-					$('.container > table > tbody').html(tag);
-				}
-			});
-		});
+		$('.btn_update').click(btnUpdateClick);
 	});
 
 </script>
