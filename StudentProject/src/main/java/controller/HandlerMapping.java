@@ -36,6 +36,12 @@ public class HandlerMapping {
 		case "studentUpdate.do":
 			controller = new StudentUpdateController();
 			break;
+		case "logout.do":
+			controller = new LogoutController();
+			break;
+		case "majorMain.do":
+			controller = new MajorMainController();
+			break;
 		}
 		
 		return controller;

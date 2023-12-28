@@ -1,0 +1,6 @@
+1. 사용자가 html에서 요청
+2. 하나의 서블릿에서 요청을 전부 받음(DispatcherServlet)
+3. HandlerMapping에서 해당 작업을 수행할 컨트롤러를 생성 후 DispatcherServlet에 리턴
+4. DispatcherServlet에서 컨트롤러를 받아서 실행, 
+   결과로는 (이동할 페이지 경로, 어떤 방식으로 페이지 이동할 것인지?) ModelAndView
+5. 사용자에게 결과를 응답
