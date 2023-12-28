@@ -153,6 +153,25 @@ public class StudentDAO {
 		return result;
 	}
 
+	public int insertStudent(MajorDTO majorDTO) {
+		String sql = "insert into major values(?,?)";
+		PreparedStatement pstmt = null;
+		int result = 0;
+		try {
+			pstmt = manager.getConn().prepareStatement(sql);
+			pstmt.setInt(1, majorDTO.getMajorNo());
+			pstmt.setString(2, majorDTO.getMajorName());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			manager.close(null, pstmt);
+		}
+		
+		return result;
+	}
+
 }
 
 

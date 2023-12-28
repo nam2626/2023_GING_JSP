@@ -60,9 +60,10 @@
 	$(function(){
 		$(".btn_major").click(function() {
 			let d = {
-					majorNo : $('.txt_major_no').val(),
-					majorName : $('.txt_major_name').val()
+					majorNo : $('#txt_major_no').val(),
+					majorName : $('#txt_major_name').val()
 			};
+			console.log(d);
 			$.ajax({
 				url : 'majorInsert.do',
 				data : d,
