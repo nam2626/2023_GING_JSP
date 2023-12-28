@@ -76,11 +76,32 @@
 			dataType : 'json',
 			success : function(r){
 				const tag = r.list.reduce((acc,cur,idx) => {
-					return acc + `<tr><td><input type='text' name='majorNo' value='\${cur.majorNo }'></td><td><input type='text' name='majorName' value='\${cur.majorName }'></td><td><button class='btn_update'>수정</button><button class='btn_delete'>삭제</button></td></tr>`;
+					return acc + `<tr><td><input type='text' name='majorNo' value='\${cur.majorNo }'></td><td><input type='text' name='majorName' value='\${cur.majorName }'></td><td><button class='btn_update'>수정</button> <button class='btn_delete'>삭제</button></td></tr>`;
 				},'');
 				console.log(tag);
 				$('.container > table > tbody').html(tag);
 				$('.btn_update').click(btnUpdateClick);
+				$('.btn_delete').click(btnDeleteClick);
+			}
+		});
+	}
+	function btnDeleteClick(){
+		let d = {
+				majorNo : $(this).parent().parent().find('input').first().val()
+		};
+		console.log(d);
+		$.ajax({
+			url : 'majorDelete.do',
+			data : d,
+			dataType : 'json',
+			success : function(r){
+				const tag = r.list.reduce((acc,cur,idx) => {
+					return acc + `<tr><td><input type='text' name='majorNo' value='\${cur.majorNo }'></td><td><input type='text' name='majorName' value='\${cur.majorName }'></td><td><button class='btn_update'>수정</button> <button class='btn_delete'>삭제</button></td></tr>`;
+				},'');
+				console.log(tag);
+				$('.container > table > tbody').html(tag);
+				$('.btn_update').click(btnUpdateClick);
+				$('.btn_delete').click(btnDeleteClick);
 			}
 		});
 	}
@@ -105,10 +126,12 @@
 					console.log(tag);
 					$('.container > table > tbody').html(tag);
 					$('.btn_update').click(btnUpdateClick);
+					$('.btn_delete').click(btnDeleteClick);
 				}
 			});
 		});
 		$('.btn_update').click(btnUpdateClick);
+		$('.btn_delete').click(btnDeleteClick);
 	});
 
 </script>

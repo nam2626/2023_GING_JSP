@@ -48,6 +48,9 @@ public class HandlerMapping {
 		case "majorUpdate.do":
 			controller = new MajorUpdateController();
 			break;
+		case "majorDelete.do":
+			controller = new MajorDeleteController();
+			break;
 		}
 		
 		return controller;

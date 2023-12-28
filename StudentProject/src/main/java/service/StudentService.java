@@ -50,7 +50,11 @@ public class StudentService {
 	}
 
 	public int updateMajor(MajorDTO majorDTO) {
-		return studentDao.updateStudent(majorDTO);
+		return studentDao.updateMajor(majorDTO);
+	}
+
+	public int deleteMajor(int majorNo) {
+		return studentDao.deleteMajor(majorNo);
 	}
 
 	
