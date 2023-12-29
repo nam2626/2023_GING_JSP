@@ -24,10 +24,6 @@ public class StudentMapper {
 		return manager.getSession().selectList("selectAllStudent");
 	}
 
-	public List<MajorDTO> selectAllMajor() {
-		return manager.getSession().selectList("selectAllMajor");
-	}
-
 	public int insertStudent(StudentDTO studentDTO) {
 		return manager.getSession().insert("insertStudent", studentDTO);
 	}

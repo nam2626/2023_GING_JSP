@@ -1,7 +1,7 @@
 package controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,7 +32,7 @@ public class MajorInsertController implements Controller {
 			obj.put("msg", "학과정보 등록에 성공하였습니다.");
 		
 		//전체 학과정보 받아옴
-		ArrayList<MajorDTO> majorList = StudentService.getInstance().selectAllMajor();
+		List<MajorDTO> majorList = StudentService.getInstance().selectAllMajor();
 		HttpSession session = request.getSession();
 		session.setAttribute("majorList", majorList);
 		JSONArray arr = new JSONArray(majorList);

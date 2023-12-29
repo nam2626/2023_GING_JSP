@@ -1,7 +1,7 @@
 package controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +16,7 @@ public class MajorMainController implements Controller {
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		//전체 학과정보 받아옴
-		ArrayList<MajorDTO> majorList = StudentService.getInstance().selectAllMajor();
+		List<MajorDTO> majorList = StudentService.getInstance().selectAllMajor();
 		HttpSession session = request.getSession();
 		session.setAttribute("majorList", majorList);
 		

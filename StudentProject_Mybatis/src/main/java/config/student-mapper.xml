@@ -10,17 +10,9 @@
 		<result column="GENDER" property="gender" />
 		<result column="MAJOR_NO" property="majorNo" />
 	</resultMap>
-	<resultMap type="dto.MajorDTO" id="major">
-		<id column="MAJOR_NO" property="majorNo" />
-		<result column="MAJOR_NAME" property="majorName" />
-	</resultMap>
 
 	<select id="selectAllStudent" resultMap="student">
 		select * from student
-	</select>
-
-	<select id="selectAllMajor" resultMap="major">
-		select * from major
 	</select>
 
 	<insert id="insertStudent" parameterType="dto.StudentDTO">
