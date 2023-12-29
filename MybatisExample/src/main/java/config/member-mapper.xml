@@ -17,7 +17,7 @@
 		select * from member
 	</select>
 
-	<select id="login" parameterType="hashmap">
+	<select id="login" parameterType="hashmap" resultMap="member">
 		select * from member
 		where m_id like #{id} and m_passwd like #{passwd}
 	</select>
