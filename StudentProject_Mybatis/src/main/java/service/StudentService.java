@@ -1,16 +1,20 @@
 package service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import dao.StudentDAO;
 import dto.MajorDTO;
 import dto.StudentDTO;
+import mapper.StudentMapper;
 
 public class StudentService {
 	private static StudentService instance = new StudentService();
 	private StudentDAO studentDao;
+	private StudentMapper mapper;
 	private StudentService() {
 		studentDao = StudentDAO.getInstance();
+		mapper = StudentMapper.getInstance();
 	}
 
 	public static StudentService getInstance() {
@@ -19,12 +23,12 @@ public class StudentService {
 		return instance;
 	}
 
-	public ArrayList<StudentDTO> selectAllStudent() {
-		return studentDao.selectAllStudent();
+	public List<StudentDTO> selectAllStudent() {
+		return mapper.selectAllStudent();
 	}
 
-	public ArrayList<MajorDTO> selectAllMajor() {
-		return studentDao.selectAllMajor();
+	public List<MajorDTO> selectAllMajor() {
+		return mapper.selectAllMajor();
 	}
 
 	public int insertStudent(StudentDTO studentDTO) {

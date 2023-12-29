@@ -1,7 +1,7 @@
 package controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,11 +18,11 @@ public class MainController implements Controller {
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		ModelAndView view = new ModelAndView("main.jsp", false);
 		//모든 학생 정보를 읽어와서 request 영역에 저장
-		ArrayList<StudentDTO> studentList = 
+		List<StudentDTO> studentList = 
 				StudentService.getInstance().selectAllStudent();
 		request.setAttribute("studentList", studentList);
 		//모든 학과 정보를 읽어와서 session 영역에 저장
-		ArrayList<MajorDTO> majorList = StudentService.getInstance().selectAllMajor();
+		List<MajorDTO> majorList = StudentService.getInstance().selectAllMajor();
 		HttpSession session = request.getSession();
 		session.setAttribute("majorList", majorList);
 		
