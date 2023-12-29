@@ -16,7 +16,7 @@
 	<select id="selectAllMember" resultMap="member">
 		select * from member
 	</select>
-
+	
 	<select id="login" parameterType="hashmap" resultMap="member">
 		select * from member
 		where m_id like #{id} and m_passwd like #{passwd}
@@ -26,6 +26,14 @@
 		insert into member values(#{memberId},#{memberPasswd},#{memberName},
 		#{memberAge},#{memberGender},#{gradeNo})
 	</insert>
+	
+	<!-- 파라미터가 하나면 사용할때 어떤 이름을 써도 상관 없음  -->
+	<delete id="deleteMember" parameterType="int">
+		<![CDATA[
+			delete from member where m_age < #{value}
+		]]>
+	</delete>
+	
 </mapper>
 
 
