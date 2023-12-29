@@ -4,40 +4,47 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.StudentMapper">
 	<resultMap type="dto.StudentDTO" id="student">
-		<id column="STD_NO" property="studentNo"/>
-		<result column="STD_NAME" property="studentName"/>
-		<result column="STD_SCORE" property="score"/>
-		<result column="GENDER" property="gender"/>
-		<result column="MAJOR_NO" property="majorNo"/>
+		<id column="STD_NO" property="studentNo" />
+		<result column="STD_NAME" property="studentName" />
+		<result column="STD_SCORE" property="score" />
+		<result column="GENDER" property="gender" />
+		<result column="MAJOR_NO" property="majorNo" />
 	</resultMap>
 	<resultMap type="dto.MajorDTO" id="major">
-		<id column="MAJOR_NO" property="majorNo"/>
-		<result column="MAJOR_NAME" property="majorName"/>
+		<id column="MAJOR_NO" property="majorNo" />
+		<result column="MAJOR_NAME" property="majorName" />
 	</resultMap>
-	
+
 	<select id="selectAllStudent" resultMap="student">
 		select * from student
-	</select>	
-	
+	</select>
+
 	<select id="selectAllMajor" resultMap="major">
 		select * from major
 	</select>
-	
+
 	<insert id="insertStudent" parameterType="dto.StudentDTO">
-		insert into student 
+		insert into student
 		values(#{studentNo},#{studentName},#{score},#{gender},#{majorNo})
 	</insert>
-	
+
 	<update id="updateStudent" parameterType="dto.StudentDTO">
-		update student set std_name = #{studentName}, std_score = #{score},
-		gender = #{gender}, major_no = #{majorNo} 
+		update student set
+		std_name = #{studentName}, std_score = #{score},
+		gender = #{gender},
+		major_no = #{majorNo}
 		where std_no like #{studentNo}
 	</update>
-	
+
 	<delete id="deleteStudent" parameterType="string">
-		delete from student where std_no like #{studentNo}
+		delete from student
+		where std_no like #{studentNo}
 	</delete>
-	
+
+	<select id="selectStudent" parameterType="string"
+		resultMap="student">
+		select * from student where std_no like #{studentNo}
+	</select>
 </mapper>
 
 

@@ -32,21 +32,21 @@ public class StudentService {
 	}
 
 	public int insertStudent(StudentDTO studentDTO) {
-		return studentDao.insertStudent(studentDTO);
+		return mapper.insertStudent(studentDTO);
 	}
 
 	public int deleteStudent(String studentNo) {
-		return studentDao.deleteStudent(studentNo);
+		return mapper.deleteStudent(studentNo);
 	}
 
 	public StudentDTO selectStudent(String studentNo) {
 		if(studentNo == null || studentNo.equals(""))
 			return null;
-		return studentDao.selectStudent(studentNo);
+		return mapper.selectStudent(studentNo);
 	}
 
 	public int updateStudent(StudentDTO studentDTO) {
-		return studentDao.updateStudent(studentDTO);
+		return mapper.updateStudent(studentDTO);
 	}
 
 	public int insertMajor(MajorDTO majorDTO) {
