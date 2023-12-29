@@ -40,6 +40,10 @@ public class MemberMapper {
 		return manager.getSession().update("updateAge", grade);
 	}
 
+	public List<MemberDTO> searchMember(HashMap<String, Object> map) {
+		return manager.getSession().selectList("searchMember", map);
+	}
+
 }
 
 

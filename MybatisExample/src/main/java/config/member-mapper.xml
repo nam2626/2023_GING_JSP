@@ -40,6 +40,21 @@
 			#{n}
 		</foreach>
 	</update>
+	
+	<select id="searchMember" parameterType="hashmap" resultMap="member">
+		select * from member where
+		<choose>
+			<when test="kind == 'name'">
+				m_name like #{search} || '%'
+			</when>
+			<when test="kind == 'age'">
+				m_age between #{search} and #{search} + 9
+			</when>
+			<otherwise>
+				m_gender = #{search}
+			</otherwise>
+		</choose>
+	</select>
 </mapper>
 
 

@@ -27,10 +27,19 @@ public class TestMain {
 //		int result = MemberMapper.getInstance().deleteMember(20);
 //		System.out.println(result);
 		//회원 등급이 1,3,5인 회원의 나이를 현재 나이의 +5를 해주는 업데이트 수행
-		int[] grade = {1, 3, 5};
-		int result = MemberMapper.getInstance().updateAge(grade);
-		System.out.println(result);
+//		int[] grade = {1, 3, 5};
+//		int result = MemberMapper.getInstance().updateAge(grade);
+//		System.out.println(result);
+		HashMap<String, Object> map = new HashMap<String, Object>();
+//		map.put("kind", "name");
+//		map.put("search", "김");
+//		map.put("kind", "age");
+//		map.put("search", 30);
+		map.put("kind", "gender");
+		map.put("search", 'F');
 		
+		List<MemberDTO> list = MemberMapper.getInstance().searchMember(map);
+		list.forEach(e -> System.out.println(e));
 	}
 
 }
