@@ -55,10 +55,48 @@ public class SearchEx {
 		}
 		return result;
 	}
+	//뉴스 검색
+	//20건이 조회되게끔 처리
+	public static String naverNewsSearch(String text) {
+		String clientId = "clientId";
+		String clientSecret = "clientSecret";
+		String result = "";
+		try {
+			text = URLEncoder.encode(text, "UTF-8");
+			String apiURL = "https://openapi.naver.com/v1/search/news.json?display=20&query=" + text;
 
-	
+			URL url = new URL(apiURL);
+			HttpURLConnection con = (HttpURLConnection)url.openConnection();
+            con.setRequestMethod("GET");
+            con.setRequestProperty("X-Naver-Client-Id", clientId);
+            con.setRequestProperty("X-Naver-Client-Secret", clientSecret);
+            
+            BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));	
+            StringBuilder responseBody = new StringBuilder();
+            String line;
+            while ((line = br.readLine()) != null) {
+                responseBody.append(line);
+            }
+            
+            JSONObject json = new JSONObject(responseBody.toString());
+            JSONArray arr = json.getJSONArray("items");
+            
+            for(int i=0;i<arr.length();i++) {
+            	result += arr.get(i) + "\n";
+            }
+		
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 	public static void main(String[] args) {
-		System.out.println(naverSearch("삼성전자"));
+//		System.out.println(naverSearch("삼성전자"));
+		System.out.println(naverNewsSearch("태영건설"));
 	}
 
 }
