@@ -34,6 +34,12 @@
 		]]>
 	</delete>
 	
+	<update id="updateAge">
+		update member set m_age = m_age + 5 where grade_no in
+		<foreach collection="array" open="(" close=")" separator=","  item="n">
+			#{n}
+		</foreach>
+	</update>
 </mapper>
 
 

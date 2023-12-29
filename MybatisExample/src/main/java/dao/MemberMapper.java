@@ -36,6 +36,10 @@ public class MemberMapper {
 		return manager.getSession().delete("deleteMember", i);
 	}
 
+	public int updateAge(int[] grade) {
+		return manager.getSession().update("updateAge", grade);
+	}
+
 }
 
 

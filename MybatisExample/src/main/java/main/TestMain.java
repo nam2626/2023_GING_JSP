@@ -26,7 +26,10 @@ public class TestMain {
 		//나이가 20세 미만은 삭제, 삭제한 건수도 출력
 //		int result = MemberMapper.getInstance().deleteMember(20);
 //		System.out.println(result);
-		
+		//회원 등급이 1,3,5인 회원의 나이를 현재 나이의 +5를 해주는 업데이트 수행
+		int[] grade = {1, 3, 5};
+		int result = MemberMapper.getInstance().updateAge(grade);
+		System.out.println(result);
 		
 	}
 
