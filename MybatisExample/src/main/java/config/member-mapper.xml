@@ -21,6 +21,11 @@
 		select * from member
 		where m_id like #{id} and m_passwd like #{passwd}
 	</select>
+	
+	<insert id="insertMember" parameterType="dto.MemberDTO">
+		insert into member values(#{memberId},#{memberPasswd},#{memberName},
+		#{memberAge},#{memberGender},#{gradeNo})
+	</insert>
 </mapper>
 
 

@@ -27,6 +27,10 @@ public class MemberMapper {
 	public MemberDTO login(HashMap<String, Object> param) {
 		return manager.getSession().selectOne("login", param);
 	}
+
+	public int insertMember(MemberDTO dto) {
+		return manager.getSession().insert("insertMember", dto);
+	}
 }
 
 

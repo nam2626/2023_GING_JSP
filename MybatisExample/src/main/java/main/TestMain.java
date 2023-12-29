@@ -15,11 +15,14 @@ public class TestMain {
 //		System.out.println(list.size());
 		//단일 데이터 조회
 		//로그인
-		HashMap<String, Object> param = new HashMap<String, Object>();
-		param.put("id", "KM1873");
-		param.put("passwd", "123456");
-		MemberDTO dto = MemberMapper.getInstance().login(param);
-		System.out.println(dto);
+//		HashMap<String, Object> param = new HashMap<String, Object>();
+//		param.put("id", "KM1873");
+//		param.put("passwd", "123456");
+//		MemberDTO dto = MemberMapper.getInstance().login(param);
+//		System.out.println(dto);
+		MemberDTO dto = new MemberDTO("A111", "1234", "dddd", 33, "A", 3);
+		int result = MemberMapper.getInstance().insertMember(dto);
+		System.out.println(result);
 	}
 
 }
