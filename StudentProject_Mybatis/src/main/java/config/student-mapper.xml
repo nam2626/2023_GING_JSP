@@ -22,6 +22,22 @@
 	<select id="selectAllMajor" resultMap="major">
 		select * from major
 	</select>
+	
+	<insert id="insertStudent" parameterType="dto.StudentDTO">
+		insert into student 
+		values(#{studentNo},#{studentName},#{score},#{gender},#{majorNo})
+	</insert>
+	
+	<update id="updateStudent" parameterType="dto.StudentDTO">
+		update student set std_name = #{studentName}, std_score = #{score},
+		gender = #{gender}, major_no = #{majorNo} 
+		where std_no like #{studentNo}
+	</update>
+	
+	<delete id="deleteStudent" parameterType="string">
+		delete from student where std_no like #{studentNo}
+	</delete>
+	
 </mapper>
 
 
