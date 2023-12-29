@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import config.DBManager;
@@ -21,6 +22,10 @@ public class MemberMapper {
 	
 	public List<MemberDTO> selectAllMember(){
 		return manager.getSession().selectList("selectAllMember");
+	}
+
+	public MemberDTO login(HashMap<String, Object> param) {
+		return manager.getSession().selectOne("login", param);
 	}
 }
 

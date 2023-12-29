@@ -17,7 +17,16 @@
 		select * from member
 	</select>
 
+	<select id="login" parameterType="hashmap">
+		select * from member
+		where id like #{id} and m_passwd like #{passwd}
+	</select>
 </mapper>
+
+
+
+
+
 
 
 
