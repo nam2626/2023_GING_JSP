@@ -1,22 +1,21 @@
 package controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dto.StudentDTO;
-import service.StudentService;
+import org.apache.ibatis.session.SqlSession;
+
+import config.MybatisManager;
 import view.ModelAndView;
 
 public class LoginController implements Controller {
 
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		ModelAndView view = null;
-		
+		ModelAndView view = null; 
 		//아이디, 패스워드 값 읽어옴
 		String id = request.getParameter("id");
 		String passwd = request.getParameter("passwd");
