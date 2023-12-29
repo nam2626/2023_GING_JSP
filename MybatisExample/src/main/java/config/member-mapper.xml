@@ -19,7 +19,7 @@
 
 	<select id="login" parameterType="hashmap">
 		select * from member
-		where id like #{id} and m_passwd like #{passwd}
+		where m_id like #{id} and m_passwd like #{passwd}
 	</select>
 </mapper>
 
